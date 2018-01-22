@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
@@ -92,5 +93,11 @@ public class HttpAsyncTask  extends AsyncTask<String, Integer, String>{
         super.onPostExecute(in);
         Log.v("HttpAsyncTask", "PROCESO TERMINADO: "+in);
         Log.v("HttpAsyncTask", "JSON: "+json);
+        try {
+            Log.v("json", json.getJSONObject("user1").get("nombre").toString());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
